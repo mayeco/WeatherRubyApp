@@ -1,6 +1,5 @@
-
-class WelcomeController < ApplicationController
-  def index
+class WelcomeController < ApplicationController # :nodoc:
+  def index # :nodoc:
     require 'unirest'
 
     @welcome = 'hello world'.to_s
