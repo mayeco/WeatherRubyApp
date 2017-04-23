@@ -1,6 +1,7 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Weather</h1>
 
-<%= @welcome %>
-<br/>
-<pre><%= debug @response %></pre>
+<% @valid_city.each do |city| -%>
+    <p>
+      <%= link_to city[1] + ' (' + @weather[city[0]]['avgTempC'].to_s + '°C)', city_weather_name_url(city[0]) %>
+    </p>
+<% end -%>
