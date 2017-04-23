@@ -1,3 +1,7 @@
 <h1>Weather in <%= @valid_city[@city.to_sym] %></h1>
 
 <h2><i>Avg Temp Today:</i> <%= @weather['avgTempC'].to_s %>°C</h2>
+<br/>
+<p>
+  <%= link_to 'Back', _back_url() %>
+</p>
