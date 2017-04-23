@@ -1,6 +1,6 @@
 require 'unirest'
 
-class WelcomeController < ApplicationController # :nodoc:
+class WeatherController < ApplicationController # :nodoc:
 
   @@valid_city = {
       'paris,fr': 'Paris',
