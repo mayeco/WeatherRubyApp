@@ -7,20 +7,20 @@ class WelcomeController < ApplicationController # :nodoc:
       'bangkok,th': 'Bangkok',
       'santiago,cl': 'Santiago',
       'new york,ny': 'New York',
-      'beijing,cn': 'Hong Kong',
       'bamako,ml': 'Bamako',
   }
 
+  @@aerisapi_client_id = 'Rs9CyAFqVXwV3okIPCZE5'
+  @@aerisapi_client_secret = '71X02kz3RZ4AZkNRBohwXGyajlEDgs7EtAm3zLUj'
+  @@secret = 'client_id=' + @@aerisapi_client_id + '&client_secret=' + @@aerisapi_client_secret
+  @@url_base = 'https://api.aerisapi.com/forecasts/%s?from=today&to=today&'
+
   def index # :nodoc:
-    aerisapi_client_id = 'Rs9CyAFqVXwV3okIPCZE5'
-    aerisapi_client_secret = '71X02kz3RZ4AZkNRBohwXGyajlEDgs7EtAm3zLUj'
-    secret = 'client_id=' + aerisapi_client_id + '&client_secret=' + aerisapi_client_secret
-    url_base = 'https://api.aerisapi.com/forecasts/%s?from=today&to=today&'
 
     @weather = {}
 
     @@valid_city.each do |city|
-      url = sprintf url_base + secret, city[0]
+      url = sprintf @@url_base + @@secret, city[0]
       response = Unirest.get url
       data = JSON.parse(response.raw_body)
 
@@ -47,5 +47,19 @@ class WelcomeController < ApplicationController # :nodoc:
       raise 'Not valid city'
     end
 
+    url = sprintf @@url_base + @@secret, @city
+    response = Unirest.get url
+    data = JSON.parse(response.raw_body)
+
+    if not data['success']
+      raise 'Error in request'
+    end
+
+    data = data['response']
+    data = data[0]
+    data = data['periods']
+    @weather = data[0]
+
+    @valid_city = @@valid_city
   end
 end
