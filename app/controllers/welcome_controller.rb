@@ -10,8 +10,8 @@ class WelcomeController < ApplicationController # :nodoc:
       'bamako,ml': 'Bamako',
   }
 
-  @@aerisapi_client_id = 'Rs9CyAFqVXwV3okIPCZE5'
-  @@aerisapi_client_secret = '71X02kz3RZ4AZkNRBohwXGyajlEDgs7EtAm3zLUj'
+  @@aerisapi_client_id = ENV['AERISAPI_CLIENT_ID']
+  @@aerisapi_client_secret = ENV['AERISAPI_CLIENT_SECRET']
   @@secret = 'client_id=' + @@aerisapi_client_id + '&client_secret=' + @@aerisapi_client_secret
   @@url_base = 'https://api.aerisapi.com/forecasts/%s?from=today&to=today&'
 
