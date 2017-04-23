@@ -1,7 +1,9 @@
 <h1>Weather</h1>
 
+<ul>
 <% @valid_city.each do |city| -%>
-    <p>
+    <li>
       <%= link_to city[1] + ' (' + @weather[city[0]]['avgTempC'].to_s + '°C)', city_weather_name_url(city[0]) %>
-    </p>
+    </li>
 <% end -%>
+</ul>
