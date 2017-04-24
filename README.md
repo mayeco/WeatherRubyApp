@@ -1,24 +1,8 @@
-# README
+# Ruby Weather App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Configure your credentials:
 
-Things you may want to cover:
+    aerisapi_client_id:
+    aerisapi_client_secret:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app use: [Aeris Weather](https://www.aerisweather.com/develop/) please sign-up [here](https://www.aerisweather.com/signup/pricing/).
