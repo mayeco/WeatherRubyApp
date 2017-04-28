@@ -13,7 +13,7 @@ module ApplicationHelper # :nodoc:
     url = format @@url_base + @@secret, city
     begin
       response = Unirest.get url
-    rescue => ex
+    rescue
       return false
     end
 
